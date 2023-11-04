@@ -6,5 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'dyni18n';
+  name = 'Mantu';
+  language = 'en';
+  changeLanguage() {
+    if (this.language === 'en') {
+      this.language = 'hi';
+    } else {
+      this.language = 'en';
+    }
+    localStorage.setItem('language', this.language);
+    window.location.reload();
+  }
+  ngOnInit() {
+    this.language = localStorage.getItem('language') ?? 'en';
+  }
 }
